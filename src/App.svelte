@@ -1,9 +1,18 @@
 <script lang="ts">
   import NavBar from "./NavBar.svelte";
+
+  import { auth, googleProvider } from "./firebase";
+  import { authState } from "rxfire/auth";
+
+  let user = authState(auth);
 </script>
 
 <main>
-  <NavBar />
+  <NavBar
+    user={$user}
+    on:login={() => auth.signInWithPopup(googleProvider)}
+    on:logout={() => auth.signOut()}
+  />
 </main>
 
 <svelte:head>
