@@ -21,12 +21,16 @@
 
     <section class="section">
       {#if $user}
-        <Route path="/">
-          <Home user={$user} />
-        </Route>
-        <Route path="new">
-          <NewRecipe user={$user} />
-        </Route>
+        <div class="columns">
+          <div class="column is-10 is-offset-1">
+            <Route path="/">
+              <Home user={$user} />
+            </Route>
+            <Route path="new">
+              <NewRecipe user={$user} />
+            </Route>
+          </div>
+        </div>
       {:else}
         <Route path="/"><Splash /></Route>
       {/if}

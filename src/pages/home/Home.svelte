@@ -3,10 +3,14 @@
   export let user: firebase.User;
 </script>
 
-<section class="hero">
-  <div class="hero-body">
-    <p class="title">
-      Hello {user.displayName}
-    </p>
+<h1 class="title">Hello {user.displayName}!</h1>
+<div class="card">
+  <div class="card-content">
+    <div class="content">
+      Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros. Donec
+      id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus
+      et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis
+      consectetur purus sit amet fermentum.
+    </div>
   </div>
-</section>
+</div>
