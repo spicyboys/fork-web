@@ -31,7 +31,12 @@
   <div class="navbar-menu">
     {#if user}
       <div class="navbar-start">
-        <Link to="new" {getProps}>New Recipe</Link>
+        <Link to="new" {getProps}>
+          <span class="icon">
+            <i class="fas fa-plus" />
+          </span>
+          <span>New Recipe</span>
+        </Link>
       </div>
     {/if}
     <LoginButton {user} on:login on:logout />
