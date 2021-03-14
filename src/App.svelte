@@ -12,14 +12,14 @@
 </script>
 
 <main>
-  <NavBar
-    user={$user}
-    on:login={() => auth.signInWithPopup(googleProvider)}
-    on:logout={() => auth.signOut()}
-  />
+  <Router>
+    <NavBar
+      user={$user}
+      on:login={() => auth.signInWithPopup(googleProvider)}
+      on:logout={() => auth.signOut()}
+    />
 
-  <section class="section">
-    <Router>
+    <section class="section">
       {#if $user}
         <Route path="/">
           <Home user={$user} />
@@ -30,8 +30,8 @@
       {:else}
         <Route path="/"><Splash /></Route>
       {/if}
-    </Router>
-  </section>
+    </section>
+  </Router>
 </main>
 
 <svelte:head>
