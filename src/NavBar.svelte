@@ -5,10 +5,14 @@
   export let user: firebase.User | undefined;
 </script>
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav
+  class="navbar is-info is-spaced"
+  role="navigation"
+  aria-label="main navigation"
+>
   <div class="navbar-brand">
     <a class="navbar-item" href="/">
-      <p class="title">Fork</p>
+      <p class="title has-text-white">Fork</p>
     </a>
   </div>
 

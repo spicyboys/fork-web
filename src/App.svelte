@@ -3,6 +3,7 @@
   import NavBar from "./NavBar.svelte";
   import Splash from "./pages/Splash.svelte";
   import Home from "./pages/home/Home.svelte";
+  import NewRecipe from "./pages/new-recipe/NewRecipe.svelte";
 
   import { auth, googleProvider } from "./firebase";
   import { authState } from "rxfire/auth";
@@ -17,15 +18,20 @@
     on:logout={() => auth.signOut()}
   />
 
-  <Router>
-    <Route path="/">
+  <section class="section">
+    <Router>
       {#if $user}
-        <Home user={$user} />
+        <Route path="/">
+          <Home user={$user} />
+        </Route>
+        <Route path="new">
+          <NewRecipe user={$user} />
+        </Route>
       {:else}
-        <Splash />
+        <Route path="/"><Splash /></Route>
       {/if}
-    </Route>
-  </Router>
+    </Router>
+  </section>
 </main>
 
 <svelte:head>
