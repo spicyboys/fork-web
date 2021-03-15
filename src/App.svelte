@@ -32,7 +32,9 @@
           </div>
         </div>
       {:else}
-        <Route path="/"><Splash /></Route>
+        <Route path="/">
+          <Splash />
+        </Route>
       {/if}
     </section>
   </Router>

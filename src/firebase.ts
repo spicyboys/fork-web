@@ -1,12 +1,19 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
+import "firebase/analytics";
 
 firebase.initializeApp({
-  apiKey: "AIzaSyBwrr4wpugaHnXd0jfRso-Ge4nt9HtQ49o",
-  projectId: "fork-61fea",
-  authDomain: "fork-61fea.firebaseapp.com",
+  apiKey: "AIzaSyCgxd_Ecei2RFo8sg9Ss4Dz9e_BlteNiiU",
+  authDomain: "fork-befcd.firebaseapp.com",
+  projectId: "fork-befcd",
+  storageBucket: "fork-befcd.appspot.com",
+  messagingSenderId: "10745776339",
+  appId: "1:10745776339:web:fe92722748f665ae2c6c26",
+  measurementId: "G-N9DB63JBBL",
 });
+
+firebase.analytics();
 
 export const auth = firebase.auth();
 export const googleProvider = new firebase.auth.GoogleAuthProvider();
