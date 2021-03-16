@@ -1,5 +1,6 @@
 <script lang="ts">
   import type firebase from "firebase";
+  import IngredientEntry from "./IngredientEntry.svelte";
   export let user: firebase.User;
 </script>
 
@@ -8,11 +9,8 @@
     <p class="card-header-title">Create a new recipe</p>
   </header>
   <div class="card-content">
-    <div class="content">
-      Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros. Donec
-      id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus
-      et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis
-      consectetur purus sit amet fermentum.
-    </div>
+    <IngredientEntry />
+    <IngredientEntry />
+    <IngredientEntry />
   </div>
 </div>
