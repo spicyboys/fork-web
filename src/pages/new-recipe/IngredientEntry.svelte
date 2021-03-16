@@ -18,4 +18,11 @@
   <p class="control">
     <input class="input" type="text" placeholder="Item" />
   </p>
+  <p class="control">
+    <button class="button is-danger">
+      <span class="icon">
+        <i class="fas fa-trash" />
+      </span>
+    </button>
+  </p>
 </div>
