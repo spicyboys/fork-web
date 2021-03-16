@@ -11,6 +11,7 @@
       {#if $$slots.subtitle}
         <p class="subtitle"><slot name="subtitle" /></p>
       {/if}
+      <slot />
     </article>
   </div>
 </div>
