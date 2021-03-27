@@ -1,5 +1,9 @@
 <script lang="ts">
 	import Counter from '$lib/Counter.svelte';
+
+	import { auth, googleProvider } from '$lib/firebase';
+	import { authState } from 'rxfire/auth';
+	let user = authState(auth);
 </script>
 
 <main>
