@@ -1,9 +1,15 @@
 <script lang="ts">
 	import Counter from '$lib/Counter.svelte';
-
-	import { auth, googleProvider } from '$lib/firebase';
+	import { auth } from '$lib/firebase';
+	import { user as userContext } from '$lib/contexts';
 	import { authState } from 'rxfire/auth';
+	import { setContext } from 'svelte';
+
 	let user = authState(auth);
+
+	setContext(userContext, {
+		getUser: () => $user
+	});
 </script>
 
 <main>
