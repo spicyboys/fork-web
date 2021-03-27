@@ -1,15 +1,10 @@
 <script lang="ts">
-	import {
-    Grid,
-    Row,
-    Column,
-  } from "carbon-components-svelte";
+	import { user } from '$lib/stores/user';
+	import Login from './_Login.svelte';
 </script>
 
-<Grid>
-	<Row>
-		<Column>
-			<h1>Welcome</h1>
-		</Column>
-	</Row>
-</Grid>
+{#if $user}
+	Logged In
+{:else}
+	<Login />
+{/if}

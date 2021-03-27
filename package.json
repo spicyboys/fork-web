@@ -33,6 +33,7 @@
 		"node": ">= 12.17.0"
 	},
 	"dependencies": {
-		"carbon-components-svelte": "^0.31.0"
+		"carbon-components-svelte": "^0.31.0",
+		"carbon-icons-svelte": "^10.28.0"
 	}
 }
