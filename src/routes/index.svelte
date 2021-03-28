@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { user } from '$lib/stores/user';
 	import Login from './_Login.svelte';
+	import { session } from '$app/stores';
 </script>
 
-{#if $user}
+{#if $session.user}
 	Logged In
 {:else}
 	<Login />

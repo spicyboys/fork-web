@@ -9,7 +9,7 @@
 	import { auth } from '$lib/firebase';
 </script>
 
-<HeaderNav>
+<HeaderNav style="display: block;">
 	<HeaderNavItem href="/" text="Add New Recipe" />
 </HeaderNav>
 
