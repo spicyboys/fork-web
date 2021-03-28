@@ -1,7 +1,23 @@
 <script lang="ts">
+	import firebase from 'firebase/app';
 	import { Grid, Row, Column, Tile, Button } from 'carbon-components-svelte';
 	import LogoGoogle16 from 'carbon-icons-svelte/lib/LogoGoogle16';
 	import { auth, googleProvider } from '$lib/firebase';
+	import { session } from '$app/stores';
+
+	async function signIn() {
+		const credential = await auth.signInWithPopup(googleProvider);
+		const idToken = await credential.user.getIdToken();
+		await fetch('/auth/session', {
+			method: 'POST',
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({ idToken })
+		});
+		session.set({ user: { token: idToken } });
+	}
 </script>
 
 <Grid>
@@ -17,11 +33,7 @@
 				<h4>Sign In</h4>
 				<hr />
 				<div class="signin-wrapper">
-					<Button
-						kind="secondary"
-						icon={LogoGoogle16}
-						on:click={() => auth.signInWithPopup(googleProvider)}>Login with Google</Button
-					>
+					<Button kind="secondary" icon={LogoGoogle16} on:click={signIn}>Login with Google</Button>
 				</div>
 			</Tile>
 		</Column>

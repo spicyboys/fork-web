@@ -3,7 +3,7 @@ import { auth } from '$lib/firebaseAdmin';
 import type * as admin from 'firebase-admin';
 
 type Context = {
-	user: { uid: string } | null;
+	user: { token: string } | null;
 };
 
 export async function getContext({ headers }): Promise<Context> {
@@ -15,15 +15,15 @@ export async function getContext({ headers }): Promise<Context> {
 		const decodedClaims = await new Promise<admin.auth.DecodedIdToken>((resolve, reject) =>
 			auth.verifySessionCookie(sessionCookie, true).then(resolve).catch(reject)
 		);
-
-		return { user: { uid: decodedClaims.uid } };
+		const token = await auth.createCustomToken(decodedClaims.uid);
+		return { user: { token } };
 	} catch (e) {
 		return { user: null };
 	}
 }
 
 type Session = {
-	user: { uid: string } | null;
+	user: { token: string } | null;
 };
 
 export function getSession({ context }: { context: Context }): Session {

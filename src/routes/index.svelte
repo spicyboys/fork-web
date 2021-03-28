@@ -1,10 +1,11 @@
 <script lang="ts">
 	import Login from './_Login.svelte';
+	import Home from './_Home.svelte';
 	import { session } from '$app/stores';
 </script>
 
 {#if $session.user}
-	Logged In
+	<Home />
 {:else}
 	<Login />
 {/if}
