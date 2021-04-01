@@ -1,4 +1,4 @@
-import type firebase from 'firebase';
+import type { firestore } from 'firebase-admin';
 
 enum IngredientAmountUnit {
 	// Whole items
@@ -27,15 +27,12 @@ export type Recipe = {
 	servings: number;
 };
 
-export const RecipeConverter: firebase.firestore.FirestoreDataConverter<Recipe> = {
-	toFirestore(recipe: Recipe): firebase.firestore.DocumentData {
+export const RecipeConverter: firestore.FirestoreDataConverter<Recipe> = {
+	toFirestore(recipe: Recipe): firestore.DocumentData {
 		return { ...recipe };
 	},
-	fromFirestore(
-		snapshot: firebase.firestore.QueryDocumentSnapshot,
-		options: firebase.firestore.SnapshotOptions
-	): Recipe {
-		const data = snapshot.data(options)!;
+	fromFirestore(snapshot: firestore.QueryDocumentSnapshot): Recipe {
+		const data = snapshot.data();
 		return {
 			name: data.name,
 			ingredients: data.ingredients,

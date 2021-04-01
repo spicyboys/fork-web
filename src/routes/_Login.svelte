@@ -1,5 +1,4 @@
 <script lang="ts">
-	import firebase from 'firebase/app';
 	import { Grid, Row, Column, Tile, Button } from 'carbon-components-svelte';
 	import LogoGoogle16 from 'carbon-icons-svelte/lib/LogoGoogle16';
 	import { auth, googleProvider } from '$lib/firebase';
@@ -16,7 +15,7 @@
 			},
 			body: JSON.stringify({ idToken })
 		});
-		session.set({ user: { token: idToken } });
+		session.set({ user: { uid: credential.user.uid } });
 	}
 </script>
 

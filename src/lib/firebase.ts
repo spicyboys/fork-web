@@ -19,7 +19,6 @@ if (!firebase.apps.length) {
 export const analytics = (): firebase.analytics.Analytics => firebase.analytics();
 export const auth = firebase.auth();
 export const googleProvider = new firebase.auth.GoogleAuthProvider();
-export const db = firebase.firestore();
 
 if (browser) {
 	// Auth is handled using session cookies, and the server will always re-send
