@@ -24,7 +24,7 @@
 </script>
 
 <HeaderNav style="display: block;">
-	<HeaderNavItem href="/" text="Add New Recipe" />
+	<HeaderNavItem href="/newrecipe" text="Add New Recipe" />
 </HeaderNav>
 
 <HeaderUtilities>

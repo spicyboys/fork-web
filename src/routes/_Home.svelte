@@ -18,8 +18,8 @@
 		<Row>
 			<Column md={{ span: 2, offset: 3 }}>
 				<Tile>
-					<h3>No recipes!</h3>
-					<p>Create one now?</p>
+					<h3>No recipes</h3>
+					<Button href="/newrecipe">Create one now!</Button>
 				</Tile>
 			</Column>
 		</Row>
@@ -29,3 +29,9 @@
 		<h2>{recipe.name}</h2>
 	{/each}
 {/if}
+
+<style lang="scss">
+	h3 {
+		margin-bottom: 10px;
+	}
+</style>
