@@ -17,6 +17,7 @@
 	import { Grid, Row, Column, Tile, Form, Button, FormGroup } from 'carbon-components-svelte';
 	import IngredientEntry from './_IngredientEntry.svelte';
 
+	// Creates a new 20 character unique ID
 	function makeID() {
 		return [...Array(20)].map(() => Math.random().toString(36)[2]).join('');
 	}
@@ -27,15 +28,18 @@
 		}
 	];
 
-	function addIngredient() {
+	// Insert a new empty ingredient after the specified index
+	function addIngredient(i: number) {
 		ingredients = [
-			...ingredients,
+			...ingredients.slice(0, i + 1),
 			{
 				id: makeID()
-			}
+			},
+			...ingredients.slice(i + 1)
 		];
 	}
 
+	// Remove the ingredient at the specified index
 	function removeIngredient(i: number) {
 		ingredients.splice(i, 1);
 		ingredients = ingredients;
@@ -51,11 +55,11 @@
 			<Tile>
 				<h3>Create a Recipe</h3>
 				<Form on:submit>
-					<FormGroup style="display: flex; flex-wrap: wrap; margin-bottom: 10px;">
+					<FormGroup class="ingredients">
 						{#each ingredients as ingredient, index (ingredient.id)}
 							<IngredientEntry
 								bind:value={ingredient}
-								on:addIngredient={addIngredient}
+								on:addIngredient={() => addIngredient(index)}
 								on:remove={() => removeIngredient(index)}
 							/>
 						{/each}
@@ -69,6 +73,12 @@
 </Grid>
 
 <style lang="scss">
+	:global(.ingredients) {
+		display: flex;
+		flex-wrap: wrap;
+		margin-bottom: 10px;
+	}
+
 	h3 {
 		margin-bottom: 10px;
 	}
