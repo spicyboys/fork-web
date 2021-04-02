@@ -5,6 +5,7 @@
 	export async function load({ session }) {
 		if (!session.user) {
 			return {
+				status: 303,
 				redirect: '/'
 			};
 		}
