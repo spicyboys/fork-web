@@ -5,7 +5,7 @@
 	import NavBar from './_NavBar.svelte';
 </script>
 
-<Header company="Fork">
+<Header company="Fork" href="/">
 	{#if $session.user}
 		<NavBar />
 	{/if}
