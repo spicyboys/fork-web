@@ -55,7 +55,7 @@
 			<Tile>
 				<h3>Create a Recipe</h3>
 				<Form on:submit>
-					<FormGroup class="ingredients">
+					<FormGroup class="ingredients" legendText="Ingredients">
 						{#each ingredients as ingredient, index (ingredient.id)}
 							<IngredientEntry
 								bind:value={ingredient}
@@ -76,7 +76,6 @@
 	:global(.ingredients) {
 		display: flex;
 		flex-wrap: wrap;
-		margin-bottom: 10px;
 	}
 
 	h3 {
